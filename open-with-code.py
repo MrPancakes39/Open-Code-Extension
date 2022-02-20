@@ -35,13 +35,15 @@ class OpenCodeExtension(Caja.MenuProvider, GObject.GObject):
 
         item = Caja.MenuItem(name="CajaPython::opencode_file_item",
                              label="Open with Code",
-                             tip="Open Code In %s" % file.get_name())
+                             tip="Open Code In %s" % file.get_name(),
+                             icon="code")
         item.connect("activate", self.menu_activate_cb, file)
         return [item]
 
     def get_background_items(self, window, file):
         item = Caja.MenuItem(name="CajaPython::opencode_item",
                              label="Open with Code",
-                             tip="Open Code In This Directory")
+                             tip="Open Code In This Directory",
+                             icon="code")
         item.connect("activate", self.menu_background_activate_cb, file)
         return [item]
